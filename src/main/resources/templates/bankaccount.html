@@ -50,8 +50,12 @@
             <td th:text="${account.customerId}"></td>
             <td th:text="${account.type}"></td>
             <td th:text="${account.balance}"></td>
-            <td> <a class="btn btn-primary"
-                    th:href="@{/bankaccount/edit/{id}(id=${account.id})}">Edit</a></td>
+            <td> <a class="btn btn-primary float-left"
+                    th:href="@{/bankaccount/edit/{id}(id=${account.id})}">Edit</a>
+            <form th:action="@{/bankaccount/delete/{id}(id=${account.id})}" method="POST">
+                <button type="submit" class="btn btn-danger ml-1">Delete</button>
+            </form>
+            </td>
         </tr>
         </tbody>
     </table>
