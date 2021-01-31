@@ -28,11 +28,42 @@
 
        <div class="form-group">
           <label for="inputBalance">Balance</label>
-          <input type="text" th:field="*{balance}" class="form-control" id="inputBalance">
+          <input disabled type="text" th:field="*{balance}" class="form-control" id="inputBalance">
       </div>
 
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary">
-        </div>
+
   </form>
+
+    <div class="row">
+        <div class="col">
+            <form
+                th:action="@{/bankaccount/deposit/{id}(id=${bankAccount.id})}"
+                method="POST">
+
+                <div class="form-group">
+                    <label for="inputDeposit">Deposit</label>
+                    <input type="text" class="form-control" id="inputDeposit" name="amount">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Deposit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <form
+                th:action="@{/bankaccount/withdraw/{id}(id=${bankAccount.id})}"
+                method="POST">
+
+                <div class="form-group">
+                    <label for="inputWithDraw">WithDraw</label>
+                    <input type="text" class="form-control" id="inputWithDraw" name="amount">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger">WithDraw</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
